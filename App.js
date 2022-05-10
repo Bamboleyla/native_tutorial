@@ -1,36 +1,40 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Linking } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 const App = () => {
   const [name, setName] = useState('Mash');
-  const [session, setSession] = useState({ number: 6, title: 'state' });
-  const [current, setCurrent] = useState(true);
 
   const onclickHandler = () => {
-    setName('Programming with Mash');
-    setSession({ number: 7, title: 'style' });
-    setCurrent(false);
+    setName('Style test is done!');
+
   };
   return (
     <View style={styles.body}>
       <Text style={styles.text}>{name}</Text>
-      <Text style={styles.text}>This session is number {session.number}</Text>
-      <Text style={styles.text}>{current ? 'current session' : 'next session'}</Text>
-      <Button title="войти" onPress={onclickHandler} />
+      <View style={{ width: 150, height: 60 }}>
+        {/* Чтобы передать стили кнопке, ее необходимо обернуть в компонент Viev и задать ему стили */}
+        <Button title="войти" onPress={onclickHandler} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   body: {
-    flex: 1,
-    backgroundColor: '#0000ff',
+    width: 300,
+    height: 150,
+    backgroundColor: '#ffff00',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 10,
+    borderColor: '#ff00ff',
+    borderRadius: 10,
+    margin: 40,
   },
   text: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     fontStyle: 'italic',
     margin: 10,
